@@ -1,0 +1,38 @@
+<div class="container" [hidden]="documentName">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Join a Collaborative Document</h1>
+      <div class="input-group">
+        <input (keyup.enter)="setDocumentName(documentNameInput.value); documentNameInput.value = ''" type="text" class="form-control" placeholder="Document Name" #documentNameInput>
+        <span class="input-group-btn">
+        <button (click)="setDocumentName(documentNameInput.value); documentNameInput.value = ''"
+                class="btn btn-primary">Join Document</button>
+      </span>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!!documentName && loading"
+     style="height: 75vh; display: flex; align-items: center; justify-content: center">
+  <div class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+</div>
+<div [hidden]="!documentName || loading" class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>{{documentName}}</h1>
+      <p>Number of Connected Users: {{connectedUserCount}}</p>
+      <p>
+        <button (click)="changeDocument($event)" class="btn btn-default">Change Document</button>
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="quill-editor"></div>
+    </div>
+  </div>
+</div>

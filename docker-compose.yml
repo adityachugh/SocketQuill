@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+#  to-do-client:
+#    build: ./ToDos-Client
+
+  to-do-server:
+      build: ./ToDos-Server
+
+      ports:
+        - 3000:3000
