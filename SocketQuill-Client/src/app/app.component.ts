@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   }
   loading = false;
   socket: any;
-  baseURL: string = "http://192.168.85.28:3000";
+  baseURL: string = "http://localhost:3000";
   connectedUserCount = 1;
   editor: any;
   selections: any = {};
